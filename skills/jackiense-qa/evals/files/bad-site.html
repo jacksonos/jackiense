@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northwind Studio</title>
+<style>
+:root { --ink:#111; --paper:#fff; --accent:#e11d48; --accent-2:#16a34a; }
+* { box-sizing: border-box; cursor: none; }
+body { margin:0; font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper); }
+.hero { background:#0f172a; color:#f8fafc; padding:64px 24px; }
+.hero h1 { font-family:'Anton',sans-serif; font-size:56px; margin:0; animation:rise 1s ease-out both; }
+.hero h1 + h1 { font-family:'Playfair Display',serif; }
+.lead { color:#aaaaaa; font-size:18px; background:#ffffff; padding:16px; }
+.muted { color:#9a9a9a; font-size:14px; }
+.wide { width:640px; background:#fde68a; padding:12px; }
+.btn { font-size:12px; padding:2px 6px; height:24px; background:#e11d48; color:#fff; border:0; transition:all .3s; }
+a:focus, .btn:focus { outline:none; }
+.card { border:1px solid #cccccc; padding:16px; }
+@keyframes rise { from { transform:translateY(40px); opacity:0 } to { transform:none; opacity:1 } }
+</style>
+</head>
+<body>
+<section class="hero">
+  <h1>We build calm software</h1>
+  <h1>for loud companies</h1>
+  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. A studio for products that last.</p>
+  <button class="btn">Start</button> <a href="#work">See work</a>
+</section>
+<main>
+  <p class="muted">Selected clients and notes from the field.</p>
+  <div class="wide">This promo banner is 640px wide and does not wrap.</div>
+  <div class="card"><img src="x.png"><p class="muted">Case study: Atlas</p></div>
+  <a href="#a" class="btn">Read</a>
+</main>
+</body>
+</html>
