@@ -10,13 +10,13 @@ Pass = total at least 85 and zero hard blockers (see SKILL.md).
 | -3 | Lint `accent` finding (more than one chromatic hue group) |
 | -3 | Lint `tokens` blocker (more than 5 literals outside `:root`) |
 | -1 | Lint `tokens` warn (1-5 literals outside `:root`) |
-| -2 | Text over image/canvas/video with no scrim and visibly weak legibility (judged from screenshot) |
+| -2 | Text over image/canvas/video with no scrim and visibly weak legibility (judged from screenshot). Skip it for text already counted as a failing pair above: no double counting |
 
 ## 2. Typography and hierarchy (15)
 | Deduction | When |
 |---|---|
 | -5 | Lint/runtime fonts: more than 2 non-mono families |
-| -3 | Fewer than 4 or more than 9 distinct font sizes (`typeScale`) |
+| -3 | More than 9 distinct font sizes, or fewer than 3 on a page with more than 3 content blocks (`typeScale`). One-screen pages are exempt from the lower bound; the hierarchy row below still covers them |
 | -3 | `h1` count is not exactly 1 |
 | -2 | Body text (most characters) under 16px at 1440 |
 | -2 | Largest size is less than 2.5x the body size (weak hierarchy) |

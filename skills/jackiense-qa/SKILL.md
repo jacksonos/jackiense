@@ -80,13 +80,23 @@ Deductions are fixed steps with required evidence; the table is in `references/r
 
 ## Report template
 
-Use this structure, in Spanish:
+Use this structure, in Spanish. The first section is for the person who asked, who may never have opened
+DevTools; everything after it is for whoever applies the fixes. A report that opens with jargon loses the
+beginner, which defeats the point of a gate anyone can use. The plain section must stand alone: someone who
+reads only that should know what to fix first.
 
 ```
 # QA: <page> — <APROBADO | NO APROBADO>
 Puntaje: NN/100 · Bloqueantes: N
 
-## Bloqueantes
+## En palabras simples
+<3 to 6 short bullets, most serious first. Each says what a visitor sees or experiences, why it matters and
+the one-line fix. No selectors, CSS properties or tool names. Translate the vocabulary: viewport = "ancho de
+pantalla", contrast = "qué tan legible es el texto", focus ring = "el marcador que muestra dónde estás al
+navegar con el teclado", reduced motion = "para quien pide menos animaciones", touch target = "tamaño
+de los botones para dedos".>
+
+## Bloqueantes (detalle técnico)
 - <id>: <what failed> — evidencia: <selector, value, viewport> — arreglo: <concrete change with value>
 
 ## Deducciones
