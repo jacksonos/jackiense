@@ -1,0 +1,15 @@
+{
+  "name": "jackiense",
+  "metadata": {
+    "description": "Guided front-end design harness for Claude Code."
+  },
+  "owner": {
+    "name": "jacksonos"
+  },
+  "plugins": [
+    {
+      "name": "jackiense",
+      "source": "./"
+    }
+  ]
+}

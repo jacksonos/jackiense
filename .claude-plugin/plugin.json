@@ -1,0 +1,11 @@
+{
+  "name": "jackiense",
+  "version": "0.1.0",
+  "description": "Guided front-end design harness: from a vague brief to a frozen design spec to a verified, professional-grade site.",
+  "author": {
+    "name": "jacksonos",
+    "url": "https://github.com/jacksonos"
+  },
+  "repository": "https://github.com/jacksonos/jackiense",
+  "keywords": ["design", "ui", "ux", "frontend", "landing", "motion", "design-tokens"]
+}
