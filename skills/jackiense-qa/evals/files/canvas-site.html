@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Halo Labs</title>
+<style>
+:root {
+  --ground:#05060a; --ink:#eef0f6; --accent:#22d3ee; --accent-ink:#031417; --scrim:rgba(5,6,10,.78);
+  --font-display:'Georgia',serif; --font-sans:'Inter',sans-serif;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--font-sans); font-size:17px; line-height:1.6; }
+#bg { position:fixed; inset:0; width:100%; height:100%; z-index:0; display:block; }
+.hero { position:relative; z-index:1; min-height:100vh; padding:96px 24px 48px; max-width:1200px; margin:0 auto; display:flex; flex-direction:column; }
+h1 { font-family:var(--font-display); font-weight:400; font-size:clamp(40px,7vw,88px); line-height:1.04; letter-spacing:-0.02em; margin:0; max-width:12ch; }
+.lead { color:var(--ink); max-width:46ch; margin:18vh 8vw 0 auto; }
+.safe { margin-top:auto; max-width:46ch; padding:16px 20px; background:var(--scrim); border-radius:16px; color:var(--ink); }
+.btn { display:inline-flex; align-items:center; min-height:48px; padding:0 28px; margin-top:24px; border-radius:999px; background:var(--accent);
+       color:var(--accent-ink); font-weight:600; text-decoration:none; align-self:flex-start; }
+.btn:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+</style>
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<main class="hero">
+  <h1>Light you can steer</h1>
+  <p class="lead">Halo Labs builds adaptive lighting for studios and stages, tuned frame by frame and controlled from one calm panel.</p>
+  <a class="btn" href="#demo">Book a demo</a>
+  <p class="safe">Trusted on 400 stages across 31 countries. Installation in a single day.</p>
+</main>
+<script>
+const c = document.getElementById('bg'), x = c.getContext('2d');
+let t = 0;
+function paint() {
+  c.width = innerWidth; c.height = innerHeight;
+  x.fillStyle = '#05060a'; x.fillRect(0, 0, c.width, c.height);
+  const r = 0.6 * Math.min(c.width, c.height), cx = c.width * 0.75, cy = c.height * 0.62;
+  const g = x.createRadialGradient(cx, cy, 0, cx, cy, r);
+  g.addColorStop(0, 'rgba(214,246,255,1)'); g.addColorStop(0.7, 'rgba(120,200,230,0.9)'); g.addColorStop(1, 'rgba(5,6,10,0)');
+  x.fillStyle = g; x.fillRect(0, 0, c.width, c.height);
+  t += 0.02;
+  x.strokeStyle = 'rgba(34,211,238,0.8)'; x.lineWidth = 2; x.beginPath();
+  x.arc(c.width * 0.12 + Math.sin(t) * 30, c.height * 0.85 + Math.cos(t) * 20, 24, 0, 6.283); x.stroke();
+  requestAnimationFrame(paint);
+}
+paint();
+</script>
+</body>
+</html>

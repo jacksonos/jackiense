@@ -1,0 +1,33 @@
+{
+  "skill_name": "jackiense-qa",
+  "evals": [
+    {
+      "id": 1,
+      "name": "bad-site-explicit",
+      "prompt": "Acabo de generar este landing con IA y quiero publicarlo hoy. Revísalo a fondo y dime si está listo: C:\\Users\\michel\\jackiense\\skills\\jackiense-qa\\evals\\files\\bad-site.html",
+      "expected_output": "NO APROBADO. Detects overflow only at 375px (.wide), numeric contrast failures (.lead ~2.32, .muted ~2.81, default blue link on dark ~1.9), more than 2 font families, 2 accent hues, no reduced-motion, removed focus outline, 37x24 button, 9 color literals outside :root; concrete fixes; Spanish; file untouched.",
+      "files": ["evals/files/bad-site.html"]
+    },
+    {
+      "id": 2,
+      "name": "good-site-no-false-positives",
+      "prompt": "Valida este sitio antes de entregarlo al cliente. ¿Pasa? C:\\Users\\michel\\jackiense\\skills\\jackiense-qa\\evals\\files\\good-site.html",
+      "expected_output": "APROBADO with score >= 85 and zero blockers, no invented contrast/overflow/focus problems, states it measured 375/768/1440 and checked reduced motion, honest about anything not measured; file untouched.",
+      "files": ["evals/files/good-site.html"]
+    },
+    {
+      "id": 3,
+      "name": "bad-site-vague-beginner",
+      "prompt": "esto se ve poco profesional pero no sé por qué, ¿qué le pasa? C:\\Users\\michel\\jackiense\\skills\\jackiense-qa\\evals\\files\\bad-site.html",
+      "expected_output": "Measured (not opinion) findings with numbers, standard vs house rules separated, prioritized by impact, plain Spanish, fixes proposed but not applied without asking.",
+      "files": ["evals/files/bad-site.html"]
+    },
+    {
+      "id": 4,
+      "name": "canvas-indeterminate-contrast",
+      "prompt": "Este hero con canvas de fondo me lo entregó un agente. El texto se ve raro en el lado derecho. ¿Cumple accesibilidad y está listo para producción? C:\\Users\\michel\\jackiense\\skills\\jackiense-qa\\evals\\files\\canvas-site.html",
+      "expected_output": "NO APROBADO. Does not claim text contrast passes automatically (text over canvas is indeterminate); identifies the .lead paragraph over the pale blob as illegible with an estimated ratio <= 2:1; treats the .safe paragraph as fine; flags the requestAnimationFrame canvas loop with no prefers-reduced-motion handling and does not conclude reduced motion is fine from animations.running = 0; proposes a scrim with values; Spanish; file untouched.",
+      "files": ["evals/files/canvas-site.html"]
+    }
+  ]
+}

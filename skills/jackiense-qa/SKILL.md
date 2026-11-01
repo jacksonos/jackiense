@@ -38,7 +38,10 @@ Run in this order. Each step feeds the next, and anything you could not measure 
    targets, controls without a focus indicator, runtime font families, type scale, animations, meta, LCP/CLS.
 4. **Reduced motion pass** at 1440: `emulate` with `prefersReducedMotion: "reduce"`, reload, measure again.
    `animations.running` and `infinite` must drop to about zero (ambient canvases excepted) and the
-   screenshot must still show every section, not content stuck at `opacity: 0`.
+   screenshot must still show every section, not content stuck at `opacity: 0`. `getAnimations()` only
+   sees CSS/WAAPI motion: a `requestAnimationFrame` loop, a 2D canvas or WebGL scene never shows up there.
+   For those, rely on the lint finding and on two screenshots a second apart; never conclude "reduced motion
+   is fine" from `animations.running = 0` alone.
 5. **Console:** `list_console_messages` filtered to `error`. Ignore a missing favicon only.
 6. **Performance:** use `perf.lcpMs` from the 1440 run. If it is `null`, record a trace with
    `performance_start_trace` plus a reload and read LCP from it.
